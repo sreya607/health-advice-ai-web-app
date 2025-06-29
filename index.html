@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>🩺 Health Advice App</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="light-mode">
+  <div class="top-bar">
+    <button id="modeToggle">🌗 Mode</button>
+    <button onclick="location.href='login.html'">🚪 Logout</button>
+  </div>
+
+  <h1 class="title">🩺 Health Advice App</h1>
+
+  <div class="main-content">
+    <div class="left-panel">
+      <label for="symptoms">📝 Describe Symptoms or speak</label>
+      <textarea id="symptoms" placeholder="e.g. I have fever and cough..."></textarea>
+    </div>
+
+    <div class="right-panel">
+      <button class="small-button" onclick="startSpeech()">🎤 Speak</button>
+
+     <label for="language">🌐 Language</label>
+<select id="language" class="small-select">
+  <option>English</option>
+  <option>Hindi</option>
+  <option>Tamil</option>
+</select>
+
+      <button class="big-button" onclick="getAdvice()">💡 Get Advice</button>
+
+      <label for="advice">🧠 AI Advice</label>
+      <textarea id="advice" readonly></textarea>
+
+      <button class="small-button" onclick="speakAdvice()">🔊 Listen</button>
+
+      <div class="actions">
+        <button onclick="location.href='history.html'">🕒 View History</button>
+        <button onclick="downloadPDF()">📄 Export PDF</button>
+        <button onclick="alert('🚨 Call emergency help: 112 or your nearest hospital')">🚨 Emergency</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>© 2025 Health Advice App. Stay Healthy 🌱</footer>
+  <button onclick="logout()" style="position: absolute; top: 10px; right: 10px;">Logout</button>
+  <!-- LOGIN FORM -->
+  <div id="loginPage" class="center-box">
+    <h2>Login to Health Advice App</h2>
+    <input type="text" id="username" placeholder="Username" required>
+    <input type="password" id="password" placeholder="Password" required>
+    <button onclick="login()">Login</button>
+    <p id="loginMessage" style="color:red;"></p>
+  </div>
+
+  <!-- MAIN APP (Hidden Until Login) -->
+  <div id="mainApp" style="display:none;">
+    <h1 class="main-heading">Health Advice App</h1>
+    <!-- The rest of your app: language, speak, advice boxes etc... -->
+    <!-- Copy your full content from before here -->
+  </div>
+
+  
+  <script src="script.js"></script>
+</body>
+</html>
