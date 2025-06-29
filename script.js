@@ -1,29 +1,4 @@
-// Show login or app based on login status
-window.onload = function () {
-  const loggedIn = localStorage.getItem("loggedIn");
 
-  if (loggedIn === "true") {
-    document.getElementById("loginPage").style.display = "none";
-    document.getElementById("mainApp").style.display = "block";
-  } else {
-    document.getElementById("loginPage").style.display = "block";
-    document.getElementById("mainApp").style.display = "none";
-  }
-};
-
-// Dummy login function
-function login() {
-  const user = document.getElementById("username").value;
-  const pass = document.getElementById("password").value;
-
-  // Set your own username/password here
-  if (user === "admin" && pass === "1234") {
-    localStorage.setItem("loggedIn", "true");
-    location.reload(); // reload to show the app
-  } else {
-    document.getElementById("loginMessage").innerText = "Invalid username or password!";
-  }
-}
 const adviceBox = document.getElementById('advice');
 const symptomBox = document.getElementById('symptoms');
 
@@ -83,8 +58,4 @@ function saveHistory(symptom, advice) {
   const existing = JSON.parse(localStorage.getItem("adviceHistory") || "[]");
   existing.push({ symptom, advice, time: new Date().toLocaleString() });
   localStorage.setItem("adviceHistory", JSON.stringify(existing));
-}
-function logout() {
-  localStorage.removeItem("loggedIn");
-  location.reload();
 }
